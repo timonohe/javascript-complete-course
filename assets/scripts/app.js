@@ -1,7 +1,8 @@
 const defaultResult = 0;
 let currentResult = defaultResult;
+let logEntries = [];
 
-// Get input value from input field
+// Gets input from input field
 function getUserInputAsNumber() {
     return parseInt(userInput.value);
 }
@@ -19,6 +20,8 @@ function add() {
     const initialResult = currentResult;
     currentResult += enteredNumber;
     createAndWriteLog('+', initialResult, enteredNumber);
+    logEntries.push(enteredNumber);
+    console.log(logEntries);
 }
 
 function subtract() {
