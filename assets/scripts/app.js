@@ -41,19 +41,11 @@ function subtract() {
 }
 
 function multiply() {
-    const enteredNumber = getUserInputAsNumber();
-    const initialResult = currentResult;
-    currentResult *= enteredNumber;
-    createAndWriteLog('*', initialResult, enteredNumber);
-    writeToLog('MULTIPLY', initialResult, enteredNumber, currentResult);
+    calculateResult('MULTIPLY');
 }
 
 function divide() {
-    const enteredNumber = getUserInputAsNumber();
-    const initialResult = currentResult;
-    currentResult /= enteredNumber;
-    createAndWriteLog('/', initialResult, enteredNumber);
-    writeToLog('DIVIDE', initialResult, enteredNumber, currentResult);
+    calculateResult('DIVIDE');
 }
 
 function calculateResult(calculationType) {
@@ -64,9 +56,15 @@ function calculateResult(calculationType) {
     if (calculationType === 'ADD') {
         currentResult += enteredNumber;
         mathOperator = '+';
-    } else {
+    } else if (calculationType === 'SUBTRACT') {
         currentResult -= enteredNumber;
         mathOperator = '-';
+    } else if (calculationType === 'MULTIPLY') {
+        currentResult *= enteredNumber;
+        mathOperator = '*';
+    } else {
+        currentResult /= enteredNumber;
+        mathOperator = '/';
     }
 
     createAndWriteLog(mathOperator, initialResult, enteredNumber);
