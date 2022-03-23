@@ -49,16 +49,18 @@ function divide() {
 }
 
 function calculateResult(calculationType) {
+    const enteredNumber = getUserInputAsNumber();
+    
     if (
         calculationType !== 'ADD' &&
         calculationType !== 'SUBTRACT' &&
         calculationType !== 'MULTIPLY' &&
-        calculationType !== 'DIVIDE'
+        calculationType !== 'DIVIDE' ||
+        !enteredNumber
     ) {
         return;
     }
     
-    const enteredNumber = getUserInputAsNumber();
     const initialResult = currentResult;
     let mathOperator;
 
