@@ -122,11 +122,17 @@ function printLogHandler() {
   for (let i = 0; i < 3; i++) {
     console.log('------------');
   }
-  // let k = 3
-  // do {
-  //   console.log(k);
-  //   k++;
-  // } while (k < 3);
+  let k = 0;
+  outerWhile: do {
+    console.log('Outer', k);
+    for (let x = 0; x < 5; x++) {
+      if (x === 3) {
+        break outerWhile;
+      }
+      console.log('Inner', x);
+    }
+    k++;
+  } while (k < 3);
   // let j = 0;
   // while (j < 3) {
   //   console.log('----------------');
