@@ -34,3 +34,13 @@ function greetVar() {
 console.log(nameVar, hobbies);
 
 greetVar();
+
+/* ====== HOISTING ====== */
+
+console.log(userName);
+var userName = 'Timo'; // Output: undefined
+
+/*
+  console.log(userName);
+  let userName = 'Timo'; // Throws an error because userName was not defined
+*/
