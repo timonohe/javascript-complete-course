@@ -44,3 +44,10 @@ var userName = 'Timo'; // Output: undefined
   console.log(userName);
   let userName = 'Timo'; // Throws an error because userName was not defined
 */
+
+/* ====== Strict Mode (Introduced with ES5) ====== */
+'use strict';
+const myAge = 30;
+var undefined = 5;
+
+console.log(myAge);
