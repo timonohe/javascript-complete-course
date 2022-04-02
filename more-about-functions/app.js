@@ -5,9 +5,9 @@ const startGameBtn = document.getElementById('start-game-btn');
 // start();
 
 // [128] functions can be stored in variables like this
-const start = function() {
-  console.log('Game is starting...');
-};
+// const start = function() {
+//   console.log('Game is starting...');
+// };
 
 // [126] greet() is called "method" because it is stored within an object as a property
 // const person = { 
@@ -26,4 +26,7 @@ const start = function() {
 // console.log(typeof startGame);
 // console.dir(startGame);
 
-startGameBtn.addEventListener('click', start);
+// [130] declare the start-game method as an anonymous function
+startGameBtn.addEventListener('click', function startGame() {
+  console.log('Game is starting...', age);
+});
