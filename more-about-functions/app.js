@@ -1,32 +1,29 @@
 const startGameBtn = document.getElementById('start-game-btn');
 
-// [129] this would throw an error because variables that declares an variable are parsed to the top of the javascript-file
-// but will not be initalized
-// start();
+const ROCK = 'ROCK';
+const PAPER = 'PAPER';
+const SCISSORS = 'SCISSORS';
+const DEFAULT_USER_CHOICE = ROCK;
 
-// [128] functions can be stored in variables like this
-// const start = function() {
-//   console.log('Game is starting...');
-// };
+let gameIsRunning = false;
 
-// [126] greet() is called "method" because it is stored within an object as a property
-// const person = { 
-//   name: 'Timo',
-//   greet: function greet() {
-//     console.log(`Hello ${this.name}!`);
-//   }
-// };
+const getPlayerChoice = function() {
+  const selection = prompt(`${ROCK}, ${PAPER} or ${SCISSORS}?`, '').toUpperCase();
+  if (selection !== ROCK && selection !== PAPER && selection !== SCISSORS) {
+    alert(`Invalid choice! We chose ${DEFAULT_USER_CHOICE} for you!`);
+    return DEFAULT_USER_CHOICE;
+  }
 
-// person.greet()
+  return selection;
+}
 
-// [127] console-output shows that functions are objects with meta-informations in it
-// function startGame() {
-//   console.log('Game is starting...');
-// };
-// console.log(typeof startGame);
-// console.dir(startGame);
-
-// [130] declare the start-game method as an anonymous function
 startGameBtn.addEventListener('click', function startGame() {
-  console.log('Game is starting...', age);
+  if (gameIsRunning) {
+    return;
+  }
+
+  gameIsRunning = true;
+  console.log('Game is starting...');
+  const playerChoice = getPlayerChoice();
+  console.log(playerChoice);
 });
