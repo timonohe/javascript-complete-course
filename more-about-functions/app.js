@@ -1,5 +1,9 @@
 const startGameBtn = document.getElementById('start-game-btn');
 
+// [129] this would throw an error because variables that declares an variable are parsed to the top of the javascript-file
+// but will not be initalized
+// start();
+
 // [128] functions can be stored in variables like this
 const start = function() {
   console.log('Game is starting...');
