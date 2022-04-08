@@ -57,7 +57,9 @@ startGameBtn.addEventListener('click', () => {
   } else {
     winner = getWinner(computerChoice);
   }
-  let message = `You picked ${playerChoice || DEFAULT_USER_CHOICE}, computer picked ${computerChoice}, therefore you `;;
+  let message = `You picked ${
+    playerChoice || DEFAULT_USER_CHOICE
+  }, computer picked ${computerChoice}, therefore you `;
   if (winner === RESULT_DRAW) {
     message += 'had a draw.';
   } else if (winner === RESULT_PLAYER_WINS) {
@@ -72,31 +74,63 @@ startGameBtn.addEventListener('click', () => {
 // not related to game
 
 // Introduction to the rest operator
-const sumUp = (resultHandler, ...numbers) => {
+const combine = (resultHandler, operation, ...numbers) => {
   const validateNumber = (number) => {
     return isNaN(number) ? 0 : number;
   };
 
   let sum = 0;
   for (const num of numbers) {
-    sum += validateNumber(num);
+    if (operation === 'ADD') {
+      sum += validateNumber(num);
+    } else {
+      sum -= validateNumber(num);
+    }
   }
   resultHandler(sum);
 };
 
 // same solution but with hidden arguments parameter
-const subtractUp = function() {
-  let sum = 0;
-  for (const num of arguments) {
-    sum -= num;
-  }
-  return sum;
+// const subtractUp = function(resultHandler, ...numbers) {
+//   let sum = 0;
+//   for (const num of numbers) {
+//     sum -= num;
+//   }
+//   resultHandler(sum, 'The result after adding all numbers is');
+// };
+
+const showResult = (messageText, result) => {
+  alert(`${messageText} ${result}`);
 };
 
-const showResult = (result) => {
-  alert(`The result after adding all numbers is: ${result}`)
-};
-
-sumUp(showResult, 1, 5, 'fasd', 10, -3, 6, 10)
-sumUp(showResult, 1, 5, 10, -3, 6, 10, 25, 88)
-console.log(subtractUp(1, 10, 15, 20));
+combine(
+  showResult.bind(this, 'The result after adding all numbers is:'),
+  'ADD',
+  1,
+  5,
+  'fasd',
+  10,
+  -3,
+  6,
+  10
+);
+combine(
+  showResult.bind(this, 'The result after adding all numbers is:'),
+  'ADD',
+  1,
+  5,
+  10,
+  -3,
+  6,
+  10,
+  25,
+  88
+);
+combine(
+  showResult.bind(this, 'The result after subtract all numbers is:'),
+  'SUBTRACT',
+  1,
+  10,
+  15,
+  20
+);
