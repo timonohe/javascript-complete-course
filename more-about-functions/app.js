@@ -73,9 +73,13 @@ startGameBtn.addEventListener('click', () => {
 
 // Introduction to the rest operator
 const sumUp = (a, b, ...numbers) => {
+  const validateNumber = (number) => {
+    return isNaN(number) ? 0 : number;
+  };
+
   let sum = 0;
   for (const num of numbers) {
-    sum += num;
+    sum += validateNumber(num);
   }
   return sum;
 };
@@ -89,6 +93,6 @@ const subtractUp = function() {
   return sum;
 }
 
-console.log(sumUp(1, 5, 10, -3, 6, 10));
+console.log(sumUp(1, 5, 'fasd', 10, -3, 6, 10));
 console.log(sumUp(1, 5, 10, -3, 6, 10, 25, 88));
 console.log(subtractUp(1, 10, 15, 20));
