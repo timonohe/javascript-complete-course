@@ -16,3 +16,14 @@ console.log(h1.id);
 input.setAttribute('value', 'some other default text');
 console.log(input.value);
 input.value = input.getAttribute('value');
+
+// Old way to select all Elements
+// const allListElements = document.querySelectorAll('li');
+
+// New way to select all Elements
+const allListElements = document.getElementsByTagName('li');
+for (const listItem of allListElements) {
+  console.dir(listItem);
+}
+const lastListElement = document.querySelector('li:last-of-type');
+lastListElement.textContent += ' (Changed!)';
