@@ -51,6 +51,21 @@ console.dir(ul.nextElementSibling); // input-element
 
 // DOM Traversal vs. Query Methods
 // do not do this everytime because it is required to know the html-structure and failures if html-code is changing
-ul = document.body.firstElementChild.nextElementSibling;
-firstListElement = ul.firstElementChild;
-console.dir(firstListElement);
+// ul = document.body.firstElementChild.nextElementSibling;
+// firstListElement = ul.firstElementChild;
+// console.dir(firstListElement);
+
+// Styling DOM Elements
+const section = document.querySelector('section');
+const button = document.querySelector('button');
+// section.style.backgroundColor = 'blue'; // set inline-style for the selected section-element
+// section.className = 'red-bg';
+button.addEventListener('click', () => {
+  // if (section.className === 'red-bg visible') {
+  //   section.className = 'red-bg invinsible';  
+  // } else {
+  //   section.className = 'red-bg visible';
+  // }
+  section.classList.toggle('visible');
+  section.classList.toggle('invinsible');
+});
