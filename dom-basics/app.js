@@ -37,3 +37,9 @@ console.dir(ul.firstChild); // text-node
 console.dir(ul.firstElementChild); // first li-element
 console.dir(ul.lastChild); // text-node
 console.dir(ul.lastElementChild); // last li-element
+
+// Using parentNode & parentElement
+const firstListElement = document.querySelector('li');
+console.dir(firstListElement.parentNode); // selects the ul-element
+console.dir(firstListElement.closest('body')); // selects the "nearest" anchestor matching a specific css-selector
+console.dir(firstListElement.closest('header'));
