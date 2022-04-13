@@ -42,4 +42,9 @@ console.dir(ul.lastElementChild); // last li-element
 const firstListElement = document.querySelector('li');
 console.dir(firstListElement.parentNode); // selects the ul-element
 console.dir(firstListElement.closest('body')); // selects the "nearest" anchestor matching a specific css-selector
-console.dir(firstListElement.closest('header'));
+
+// Selecting Sibling Elements
+console.dir(ul.previousSibling); // text-node
+console.dir(ul.previousElementSibling); // header-element
+console.dir(ul.nextSibling); // text-node
+console.dir(ul.nextElementSibling); // input-element
