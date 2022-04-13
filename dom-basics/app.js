@@ -29,7 +29,7 @@ const lastListElement = document.querySelector('li:last-of-type');
 lastListElement.textContent += ' (Changed!)';
 
 // Traversing Child Nodes
-const ul = document.querySelector('ul');
+let ul = document.querySelector('ul');
 console.dir(ul.children); // .children selects all child-nodes excluding text-nodes
 console.dir(ul.children[1]);
 console.dir(ul.childNodes); // .childNodes selects all child-nodes including text-nodes
@@ -39,7 +39,7 @@ console.dir(ul.lastChild); // text-node
 console.dir(ul.lastElementChild); // last li-element
 
 // Using parentNode & parentElement
-const firstListElement = document.querySelector('li');
+let firstListElement = document.querySelector('li');
 console.dir(firstListElement.parentNode); // selects the ul-element
 console.dir(firstListElement.closest('body')); // selects the "nearest" anchestor matching a specific css-selector
 
@@ -48,3 +48,9 @@ console.dir(ul.previousSibling); // text-node
 console.dir(ul.previousElementSibling); // header-element
 console.dir(ul.nextSibling); // text-node
 console.dir(ul.nextElementSibling); // input-element
+
+// DOM Traversal vs. Query Methods
+// do not do this everytime because it is required to know the html-structure and failures if html-code is changing
+ul = document.body.firstElementChild.nextElementSibling;
+firstListElement = ul.firstElementChild;
+console.dir(firstListElement);
