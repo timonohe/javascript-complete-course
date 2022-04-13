@@ -27,3 +27,13 @@ for (const listItem of allListElements) {
 }
 const lastListElement = document.querySelector('li:last-of-type');
 lastListElement.textContent += ' (Changed!)';
+
+// Traversing Child Nodes
+const ul = document.querySelector('ul');
+console.dir(ul.children); // .children selects all child-nodes excluding text-nodes
+console.dir(ul.children[1]);
+console.dir(ul.childNodes); // .childNodes selects all child-nodes including text-nodes
+console.dir(ul.firstChild); // text-node
+console.dir(ul.firstElementChild); // first li-element
+console.dir(ul.lastChild); // text-node
+console.dir(ul.lastElementChild); // last li-element
