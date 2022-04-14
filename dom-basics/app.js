@@ -95,3 +95,7 @@ createElementList.lastElementChild.after(newLi);
 createElementList.lastElementChild.replaceWith(newLi);
 // better browser support for inserting elements before or after
 createElementList.children[1].insertAdjacentElement('afterend', newLi);
+
+// copy an element (true = deep clone with all children)
+const newLi2 = newLi.cloneNode(true);
+createElementList.append(newLi, newLi2);
