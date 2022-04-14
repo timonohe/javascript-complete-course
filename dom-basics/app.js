@@ -83,4 +83,15 @@ div.insertAdjacentHTML('beforeend', '<p>Something went wrong!</p>');
 const createElementList = document.getElementById('create-element-list');
 const newLi = document.createElement('li');
 newLi.textContent = 'Item 4';
+// adding an element to the end of the node
 createElementList.appendChild(newLi);
+// adding an element to the start of the node
+createElementList.prepend(newLi);
+// adding an element before an child element
+createElementList.lastElementChild.before(newLi);
+// adding an element after an child element
+createElementList.lastElementChild.after(newLi);
+// replaces the element
+createElementList.lastElementChild.replaceWith(newLi);
+// better browser support for inserting elements before or after
+createElementList.children[1].insertAdjacentElement('afterend', newLi);
