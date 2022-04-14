@@ -99,3 +99,8 @@ createElementList.children[1].insertAdjacentElement('afterend', newLi);
 // copy an element (true = deep clone with all children)
 const newLi2 = newLi.cloneNode(true);
 createElementList.append(newLi, newLi2);
+
+// removes node from the document (not supported by IE)
+// createElementList.remove();
+// removes node from parent element (supported by IE)
+createElementList.parentElement.removeChild(createElementList);
