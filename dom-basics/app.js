@@ -69,3 +69,12 @@ button.addEventListener('click', () => {
   section.classList.toggle('visible');
   section.classList.toggle('invinsible');
 });
+
+// replaces all descendant elements within this section
+section.innerHTML = '<h2>A new title!</h2>';
+
+const addingElementsList = document.getElementById('adding-elements-list');
+// add new content but still rerender the previous elements and its old content (not good)
+// addingElementsList.innerHTML = addingElementsList.innerHTML + '<li>Item 4</li>';
+const div = document.querySelector('div');
+div.insertAdjacentHTML('beforeend', '<p>Something went wrong!</p>');
