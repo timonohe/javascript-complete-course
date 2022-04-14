@@ -77,4 +77,10 @@ const addingElementsList = document.getElementById('adding-elements-list');
 // add new content but still rerender the previous elements and its old content (not good)
 // addingElementsList.innerHTML = addingElementsList.innerHTML + '<li>Item 4</li>';
 const div = document.querySelector('div');
+// to access the new paragraph it has to be selected via a new query method and its not available native in the div constant
 div.insertAdjacentHTML('beforeend', '<p>Something went wrong!</p>');
+
+const createElementList = document.getElementById('create-element-list');
+const newLi = document.createElement('li');
+newLi.textContent = 'Item 4';
+createElementList.appendChild(newLi);
