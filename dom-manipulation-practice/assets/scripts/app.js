@@ -16,7 +16,7 @@ const updateUI = () => {
     entryTextSection.style.display = 'none';
   }
 };
-const deleteMovie = (movieId) => {
+const deleteMovie = movieId => {
   let movieIndex = 0;
   for (const movie of movies) {
     if (movie.id === movieId) {
@@ -31,10 +31,13 @@ const closeMovieDeletionModal = () => {
   toggleBackdrop();
   deleteMovieModal.classList.remove('visible');
 };
-const deleteMovieHAndler = (movieId) => {
+const deleteMovieHAndler = movieId => {
   deleteMovieModal.classList.add('visible');
   toggleBackdrop();
-  //deleteMovie(movieId);
+  const cancelDeletionButton = deleteMovieModal.querySelector('.btn--passive');
+  const confirmDeletionButton = deleteMovieModal.querySelector('.btn--danger');
+  cancelDeletionButton.addEventListener('click', closeMovieDeletionModal);
+  confirmDeletionButton.addEventListener('click', deleteMovie.bind(null, movieId));
 };
 const renderNewMovieElement = (movie) => {
   const newMovieElement = document.createElement('li');
