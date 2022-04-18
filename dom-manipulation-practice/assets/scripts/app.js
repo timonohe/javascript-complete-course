@@ -5,6 +5,7 @@ const addMovieButton = document.querySelector('header button');
 const backdrop = document.getElementById('backdrop');
 const userInputs = addMovieModal.querySelectorAll('input');
 const entryTextSection = document.getElementById('entry-text');
+const listRoot = document.getElementById('movie-list');
 const movies = [];
 
 const updateUI = () => {
@@ -13,6 +14,17 @@ const updateUI = () => {
   } else {
     entryTextSection.style.display = 'none';
   }
+};
+const deleteMovieHAndler = (movieId) => {
+  let movieIndex = 0;
+  for (const movie of movies) {
+    if (movie.id === movieId) {
+      break;
+    }
+    movieIndex++;
+  }
+  movies.splice(movieIndex, 1);
+  listRoot.children[movieIndex].remove();
 };
 const renderNewMovieElement = (movie) => {
   const newMovieElement = document.createElement('li');
@@ -26,7 +38,7 @@ const renderNewMovieElement = (movie) => {
       <p>${movie.rating}/5 stars</p>
     </div>
   `;
-  const listRoot = document.getElementById('movie-list');
+  newMovieElement.addEventListener('click', deleteMovieHAndler.bind(null, movie.id));
   listRoot.append(newMovieElement);
 };
 const toggleBackdrop = () => {
@@ -65,6 +77,7 @@ const addMovieHandler = () => {
   }
 
   const newMovie = {
+    id: Math.random().toString(),
     title: titleVAlue,
     image: imageUrlValue,
     rating: ratingValue
