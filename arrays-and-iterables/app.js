@@ -41,3 +41,12 @@ hobbies[1] = 'Coding';
 // will add 3 empty items and the 'Coding'-Item on index 5
 hobbies[5] = 'Reading'; // rarely used
 console.log(hobbies, hobbies[4]);
+
+hobbies = ['Sports', 'Cooking'];
+// Array.splice adds x new items after the starting index and deletes y items (specified as second parameter)
+hobbies.splice(1, 0, 'Good Food');
+console.log(hobbies);
+// removes 1 item starting at index 0 (negative index starts at the end of the array)
+const removedElements = hobbies.splice(0, 1);
+console.log(hobbies);
+console.log(removedElements);
