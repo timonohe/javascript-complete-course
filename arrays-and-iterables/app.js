@@ -50,3 +50,13 @@ console.log(hobbies);
 const removedElements = hobbies.splice(0, 1);
 console.log(hobbies);
 console.log(removedElements);
+
+const testResults = [1, 5.3, 1.5, 10.99, -5, 10];
+let storedResults = testResults; // copy reference value
+testResults.push(5.91);
+console.log(testResults, storedResults); // same values
+storedResults = testResults.slice(); // creates an entirely new array (copy array)
+testResults.push(1337);
+console.log(testResults, storedResults); // 1337 only appeares in testResults
+console.log(testResults.slice(0, 2)); // creates a new array starting at position x and ends on position y (excluding item on index y)
+console.log(testResults.slice(-3, -1));
