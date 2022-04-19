@@ -17,7 +17,7 @@ console.log(listItems);
 const arrayListItems = Array.from(listItems);
 console.log(arrayListItems);
 
-const hobbies = ['Cooking', 'Sports'];
+let hobbies = ['Sports', 'Cooking'];
 const personalData = [30, 'Timo', { moreDetails: [] }];
 const analyticsData = [
   [1, 1.6],
@@ -29,3 +29,15 @@ for (const data of analyticsData) {
   }
 }
 console.log(personalData[1]);
+
+hobbies.push('Reading'); // Array.push() adds a new element at the end of the array
+hobbies.unshift('Coding'); // Array.unshift() adds a new element at the start of the array
+console.log(hobbies);
+hobbies.pop(); // Array.pop() removes the last item of the array and returns it
+hobbies.shift(); // Array.shift() removes the first item of the array and returns it
+// ...shift() and ...unshift() are performance-wise slower than ...push() and ...pop(), because they shift each element
+console.log(hobbies);
+hobbies[1] = 'Coding';
+// will add 3 empty items and the 'Coding'-Item on index 5
+hobbies[5] = 'Reading'; // rarely used
+console.log(hobbies, hobbies[4]);
