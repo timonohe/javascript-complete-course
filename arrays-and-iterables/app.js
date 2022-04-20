@@ -70,3 +70,12 @@ console.log(storedResults, testResults);
 console.log(testResults.indexOf(1.5));
 // Array.lastIndexOf() returns the first found index with given item beginning with the end of the array
 console.log(testResults.lastIndexOf(1.5));
+
+// Array.(last)indexOf() doesn't work on objects because of the reference-value
+personalData = [{name: 'Max'}, {name: 'Manuel'}];
+// Array.find() stops at the first finding and returns the same object item from the array
+const manuel = personalData.find(person => person.name === 'Manuel');
+manuel.name = 'Anna';
+console.log(manuel, personalData);
+const maxIndex = personalData.findIndex(person => person.name === 'Max');
+console.log(maxIndex);
