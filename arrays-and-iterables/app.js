@@ -80,4 +80,18 @@ console.log(manuel, personalData);
 const maxIndex = personalData.findIndex(person => person.name === 'Max');
 console.log(maxIndex);
 
+// Shorter way for testResults.indexOf(10.99) !== -1
 console.log(testResults.includes(10.99));
+
+// Alternative for a loop over all array items includes the index as optional parameter
+const prices = [10.99, 5.99, 3.99, 6.59];
+const tax = 0.19;
+const taxAdjustedPrices = [];
+// for (const price of prices) {
+//   taxAdjustedPrices.push(price * (1 + tax));
+// }
+prices.forEach((price, index) => {
+  const priceObj = { index, taxAdjPrice: price * (1 + tax) };
+  taxAdjustedPrices.push(priceObj);
+}); 
+console.log(taxAdjustedPrices);
