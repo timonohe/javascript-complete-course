@@ -79,3 +79,5 @@ manuel.name = 'Anna';
 console.log(manuel, personalData);
 const maxIndex = personalData.findIndex(person => person.name === 'Max');
 console.log(maxIndex);
+
+console.log(testResults.includes(10.99));
