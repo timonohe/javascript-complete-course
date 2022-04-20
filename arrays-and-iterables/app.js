@@ -138,3 +138,9 @@ const deepclonedPersons = [...persons.map(person => ({ name: person.name, age: p
 persons.push({ name: 'Anna', age: 29 });
 persons[0].age = 31;
 console.log(persons, copiedPersonsWithReferences, deepclonedPersons);
+
+// Array Destructuring
+// const firstName = nameFragments[0];
+// const lastName = nameFragments[1];
+const [ firstName, lastName ] = nameFragments;
+console.log(firstName, lastName);
