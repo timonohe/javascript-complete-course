@@ -18,7 +18,7 @@ const arrayListItems = Array.from(listItems);
 console.log(arrayListItems);
 
 let hobbies = ['Sports', 'Cooking'];
-const personalData = [30, 'Timo', { moreDetails: [] }];
+let personalData = [30, 'Timo', { moreDetails: [] }];
 const analyticsData = [
   [1, 1.6],
   [-5.4, 2.1],
@@ -51,7 +51,7 @@ const removedElements = hobbies.splice(0, 1);
 console.log(hobbies);
 console.log(removedElements);
 
-const testResults = [1, 5.3, 1.5, 10.99, -5, 10];
+const testResults = [1, 5.3, 1.5, 10.99, -5, 10, 1.5];
 let storedResults = testResults; // copy reference value
 testResults.push(5.91);
 console.log(testResults, storedResults); // same values
@@ -65,3 +65,8 @@ console.log(testResults.slice(-3, -1));
 storedResults = testResults.concat([3.99, 2]);
 testResults.push(1405);
 console.log(storedResults, testResults);
+
+// Array.indexOf() returns the first found index with given item
+console.log(testResults.indexOf(1.5));
+// Array.lastIndexOf() returns the first found index with given item beginning with the end of the array
+console.log(testResults.lastIndexOf(1.5));
