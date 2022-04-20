@@ -95,3 +95,8 @@ prices.forEach((price, index) => {
   taxAdjustedPrices.push(priceObj);
 }); 
 console.log(taxAdjustedPrices);
+
+const taxAdjustedPricesWithMap = prices.map((price, index) => {
+  return { index, taxAdjPrice: price * (1 + tax) };
+});
+console.log(prices, taxAdjustedPricesWithMap);
