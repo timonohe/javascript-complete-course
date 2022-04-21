@@ -33,5 +33,9 @@ let person = { name: 'Max' };
 const personWeakSet = new WeakSet();
 personWeakSet.add(person);
 // ... some operations with person
-person = null;
+// person = null;
 console.log(personWeakSet);
+
+const personDataWeakMap = new WeakMap();
+personDataWeakMap.set(person, 'Extra information!');
+console.log(personDataWeakMap);
