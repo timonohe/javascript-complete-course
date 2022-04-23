@@ -16,7 +16,7 @@ const findMaximumNumber = (...numbers) => {
 };
 console.log(findMaximumNumber(...numbers));
 
-const findMaxAndMin = function(...numbers) {
+const findMaxAndMin = (...numbers) => {
   let max;
   let min;
   for (const number of numbers) {
