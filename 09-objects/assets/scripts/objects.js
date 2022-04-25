@@ -38,4 +38,13 @@ console.log(propertyTypes[1.5]);
 // object attributes are ordered like they are added to that object
 console.log(person);
 const numbers = {5: 'hi', 1: 'true'};
+// objects with numbers as attribute names are sorted
 console.log(numbers);
+
+const keyName = 'first-name';
+console.log(specialKeyNamesObject[keyName]); // specialKeyNamesObject.keyName wouldn't work
+const userChosenKeyName = 'level';
+const dynamicPropertySetting = {
+  [userChosenKeyName]: '...'
+};
+console.log(dynamicPropertySetting);
