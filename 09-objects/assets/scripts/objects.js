@@ -19,7 +19,7 @@ console.log(person.age);
 person.age = null; // will be part of the person object again
 console.log(person);
 
-let specialKeyNamesObject = {
+const specialKeyNamesObject = {
   'first-name': 'Timo'
 };
 console.log(specialKeyNamesObject);
@@ -29,3 +29,13 @@ const movieList = document.getElementById('movie-list');
 // movieList.style['backgroundColor'] = 'red';
 movieList.style['background-color'] = 'red';
 movieList.style.display = 'block';
+
+const propertyTypes = {
+  1.5: 'hello'
+};
+console.log(propertyTypes);
+console.log(propertyTypes[1.5]);
+// object attributes are ordered like they are added to that object
+console.log(person);
+const numbers = {5: 'hi', 1: 'true'};
+console.log(numbers);
