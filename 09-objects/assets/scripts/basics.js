@@ -48,3 +48,25 @@ const dynamicPropertySetting = {
   [userChosenKeyName]: '...'
 };
 console.log(dynamicPropertySetting);
+
+// Spread-Operator with objects
+person = {
+  name: 'Max',
+  hobbies: ['Sports', 'Cooking']
+};
+// Objects are "reference-valuces"...
+const anotherPerson = person;
+// ... so this will add the age property also on anotherPerson
+person.age = 30;
+// takes all key-value pairs and merge/copy it into a new object (arrays etc. are again reference values)
+const person2 = { ...person };
+// this will change the age only in person and anotherPerson not in 
+// person2 because the spread-operator copys all primitive values
+person.age = 31;
+// adds coding to hobbies in all 3 objects because hobbies are stored in an array (reference-value)
+person.hobbies.push('Coding');
+// pull all key-value pairs and copies it into a new object includes the age
+// but overrides it with 29 and deep copy hobbies with spread operator on person.hobbies
+const person3 = { ...person, age: 29, hobbies: [...person.hobbies] };
+// removes last hobbie in all person objects except person3 because it is a deep copy
+person.hobbies.pop();
