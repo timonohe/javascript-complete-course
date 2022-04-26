@@ -59,7 +59,7 @@ const anotherPerson = person;
 // ... so this will add the age property also on anotherPerson
 person.age = 30;
 // takes all key-value pairs and merge/copy it into a new object (arrays etc. are again reference values)
-const person2 = { ...person };
+let person2 = { ...person };
 // this will change the age only in person and anotherPerson not in 
 // person2 because the spread-operator copys all primitive values
 person.age = 31;
@@ -70,3 +70,10 @@ person.hobbies.push('Coding');
 const person3 = { ...person, age: 29, hobbies: [...person.hobbies] };
 // removes last hobbie in all person objects except person3 because it is a deep copy
 person.hobbies.pop();
+
+// Copy objects with Object.assign (merges all key-value pairs with shallow copy into the target)
+// Object.assing is longer but has better browser support as the spread operator
+person = { name: 'Timo' };
+person2 = Object.assign({}, person);
+// doesn't change the name of person2
+person.name = 'Alex';
