@@ -3,7 +3,7 @@ let person = {
   age: 30,
   hobbies: ['Sports', 'Cooking'],
 
-  greet: () => {
+  greet: function() {
     alert('Hi there!');
   }
 };

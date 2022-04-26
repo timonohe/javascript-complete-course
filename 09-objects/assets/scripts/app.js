@@ -27,9 +27,10 @@ const renderMovies = (filter = '') => {
     // object destructuring
     const { info, ...otherProps } = movie;
     // object desturcturing with using another variable name than the object property name
-    const { title: movieTitle } = info;
+    // const { title: movieTitle } = info;
+    // const { getFormattedTitle } = movie;
     console.log(otherProps);
-    let text = movieTitle + ' - ';
+    let text = movie.getFormattedTitle() + ' - ';
     for (const key in info) {
       if (key !== 'title') {
         text += `${key}: ${info[key]}`;
@@ -59,6 +60,10 @@ const addMovieHandler = () => {
       [extraName]: extraValue,
     },
     id: Math.random(),
+    getFormattedTitle: function() {
+      // without "this" the method would search after an info variable outside this object
+      return this.info.title.toUpperCase();
+    }
   };
 
   movies.push(newMovie);
