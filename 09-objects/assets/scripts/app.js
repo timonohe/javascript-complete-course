@@ -31,6 +31,8 @@ const renderMovies = (filter = '') => {
     // let { getFormattedTitle } = movie;
     console.log(otherProps);
     // same as movie.getFormattedTitle()
+    // getFormattedTitle = getFormattedTitle.call(movie, ...arguments for this function);
+    // getFormattedTitle = getFormattedTitle.apply(movie, [arguments for this function])
     // getFormattedTitle = getFormattedTitle.bind(movie);
     let text = movie.getFormattedTitle() + ' - ';
     for (const key in info) {
