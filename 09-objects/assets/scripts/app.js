@@ -20,6 +20,10 @@ const renderMovies = (filter = '') => {
 
   filteredMovie.forEach((movie) => {
     const movieEl = document.createElement('li');
+
+    // Checking for property existance (same as movie.info !== undefined)
+    // if ('info' in movie) { }
+
     // object destructuring
     const { info, ...otherProps } = movie;
     // object desturcturing with using another variable name than the object property name
