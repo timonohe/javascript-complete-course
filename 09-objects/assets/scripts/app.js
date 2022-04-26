@@ -28,8 +28,10 @@ const renderMovies = (filter = '') => {
     const { info, ...otherProps } = movie;
     // object desturcturing with using another variable name than the object property name
     // const { title: movieTitle } = info;
-    // const { getFormattedTitle } = movie;
+    // let { getFormattedTitle } = movie;
     console.log(otherProps);
+    // same as movie.getFormattedTitle()
+    // getFormattedTitle = getFormattedTitle.bind(movie);
     let text = movie.getFormattedTitle() + ' - ';
     for (const key in info) {
       if (key !== 'title') {
