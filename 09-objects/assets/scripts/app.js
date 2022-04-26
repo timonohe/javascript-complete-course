@@ -60,7 +60,7 @@ const addMovieHandler = () => {
       [extraName]: extraValue,
     },
     id: Math.random(),
-    getFormattedTitle: function() {
+    getFormattedTitle() {
       // without "this" the method would search after an info variable outside this object
       return this.info.title.toUpperCase();
     }
