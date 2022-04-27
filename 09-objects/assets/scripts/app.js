@@ -75,8 +75,8 @@ const addMovieHandler = () => {
 };
 
 const searchMovieHandler = () => {
-  // logging the window object because this method will be executed indirectly by the click event
   // declaring searchMovieHandler with function() and not with arrow functions 'this' will be the button element
+  // arrow functions binds 'this' to the global window object
   // console.log(this);
   const searchterm = document.getElementById('filter-title').value;
   renderMovies(searchterm);
