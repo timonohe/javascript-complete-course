@@ -1,8 +1,10 @@
 class Product {
-  title = 'DEFAULT';
-  imageUrl;
-  description;
-  price;
+  // if constructor is setup the object then this class fields are unnecessary to declare
+  // because the constructor overrides them
+  // title = 'DEFAULT';
+  // imageUrl;
+  // description;
+  // price;
 
   constructor(title, imageUrl, description, price) {
     this.title = title;
