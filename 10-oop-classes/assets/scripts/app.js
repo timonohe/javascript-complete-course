@@ -33,7 +33,6 @@ class ProductList {
   constructor() {}
 
   render() {
-    const renderHook = document.getElementById('app');
     const prodList = document.createElement('ul');
     prodList.className = 'product-list';
     this.products.forEach(product => {
@@ -41,7 +40,21 @@ class ProductList {
       const productElement = productItem.render();
       prodList.append(productElement);
     });
-    renderHook.append(prodList);
+    return prodList;
+  }
+}
+
+class ShoppingCart {
+  items = [];
+
+  render() {
+    const cartEl = document.createElement('section');
+    cartEl.innerHTML = `
+      <h2>Total: \$${0}</h2>
+      <button>Order Now!</button>
+    `;
+    cartEl.className = 'cart';
+    return cartEl;
   }
 }
 
@@ -75,5 +88,19 @@ class ProductItem {
   }
 }
 
-const productList = new ProductList();
-productList.render();
+class Shop {
+  render() {
+    const renderHook = document.getElementById('app');
+
+    const cart = new ShoppingCart();
+    const cartEl = cart.render();
+    const productList = new ProductList();
+    const prodListEl = productList.render();
+
+    renderHook.append(cartEl);
+    renderHook.append(prodListEl);
+  }
+}
+
+const shop = new Shop();
+shop.render();
