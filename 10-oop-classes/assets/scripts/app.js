@@ -1,5 +1,15 @@
+class Product {
+  title = 'DEFAULT';
+  imageUrl;
+  description;
+  price;
+}
+
+console.log(new Product());
+
 const productList = {
   products: [
+    // new Product(),
     {
       title: 'A Pillow',
       imageUrl: 'https://cdn.shopify.com/s/files/1/0951/7126/products/classic_solid-white_pillowcase_silo_768x.progressive.jpg?v=1628533735',
