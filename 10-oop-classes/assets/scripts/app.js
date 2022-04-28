@@ -3,31 +3,35 @@ class Product {
   imageUrl;
   description;
   price;
-}
 
-console.log(new Product());
+  constructor(title, imageUrl, description, price) {
+    this.title = title;
+    this.imageUrl = imageUrl;
+    this.description = description;
+    this.price = price;
+  }
+}
 
 const productList = {
   products: [
-    // new Product(),
-    {
-      title: 'A Pillow',
-      imageUrl: 'https://cdn.shopify.com/s/files/1/0951/7126/products/classic_solid-white_pillowcase_silo_768x.progressive.jpg?v=1628533735',
-      price: 19.99,
-      description: 'A soft pillow!',
-    },
-    {
-      title: 'A Carpet',
-      imageUrl: 'https://image.made-in-china.com/2f0j00sqzGDuBcJRbr/Floor-Carpet-Soft-4cm-Rugs-Velvet-Carpets-for-Living-Room.jpg',
-      price: 89.99,
-      description: 'A carpet which you might like - or not.'
-    }
+    new Product(
+      'A Pillow',
+      'https://cdn.shopify.com/s/files/1/0951/7126/products/classic_solid-white_pillowcase_silo_768x.progressive.jpg?v=1628533735',
+      'A soft pillow!',
+      19.99
+    ),
+    new Product(
+      'A Carpet',
+      'https://image.made-in-china.com/2f0j00sqzGDuBcJRbr/Floor-Carpet-Soft-4cm-Rugs-Velvet-Carpets-for-Living-Room.jpg',
+      'A carpet which you might like - or not.',
+      89.99
+    )
   ],
   render() {
     const renderHook = document.getElementById('app');
     const prodList = document.createElement('ul');
     prodList.className = 'product-list';
-    this.products.forEach(product => {
+    this.products.forEach((product) => {
       const prodEl = document.createElement('li');
       prodEl.className = 'product-item';
       prodEl.innerHTML = `
@@ -44,7 +48,7 @@ const productList = {
       prodList.append(prodEl);
     });
     renderHook.append(prodList);
-  }
+  },
 };
 
 productList.render();
