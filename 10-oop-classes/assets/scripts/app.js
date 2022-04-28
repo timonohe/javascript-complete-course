@@ -14,8 +14,8 @@ class Product {
   }
 }
 
-const productList = {
-  products: [
+class ProductList {
+  products = [
     new Product(
       'A Pillow',
       'https://cdn.shopify.com/s/files/1/0951/7126/products/classic_solid-white_pillowcase_silo_768x.progressive.jpg?v=1628533735',
@@ -28,29 +28,45 @@ const productList = {
       'A carpet which you might like - or not.',
       89.99
     )
-  ],
+  ];
+
+  constructor() {}
+
   render() {
     const renderHook = document.getElementById('app');
     const prodList = document.createElement('ul');
     prodList.className = 'product-list';
-    this.products.forEach((product) => {
-      const prodEl = document.createElement('li');
-      prodEl.className = 'product-item';
-      prodEl.innerHTML = `
-        <div>
-          <img src="${product.imageUrl}" alt="${product.title}">
-          <div class="product-item__content">
-            <h2>${product.title}</h2>
-            <h3>\$${product.price}</h3>
-            <p>${product.description}</p>
-            <button>Add to Card</button>
-          </div>
-        </div>
-      `;
-      prodList.append(prodEl);
+    this.products.forEach(product => {
+      const productItem = new ProductItem(product);
+      const productElement = productItem.render();
+      prodList.append(productElement);
     });
     renderHook.append(prodList);
-  },
-};
+  }
+}
 
+class ProductItem {
+  constructor(product) {
+    this.product = product;
+  }
+
+  render() {
+    const prodEl = document.createElement('li');
+    prodEl.className = 'product-item';
+    prodEl.innerHTML = `
+      <div>
+        <img src="${this.product.imageUrl}" alt="${this.product.title}">
+        <div class="product-item__content">
+          <h2>${this.product.title}</h2>
+          <h3>\$${this.product.price}</h3>
+          <p>${this.product.description}</p>
+          <button>Add to Card</button>
+        </div>
+      </div>
+    `;
+    return prodEl;
+  }
+}
+
+const productList = new ProductList();
 productList.render();
