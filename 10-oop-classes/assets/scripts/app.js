@@ -22,9 +22,11 @@ class ElementAttribute {
 }
 
 class Component {
-  constructor(renderHookId) {
+  constructor(renderHookId, shouldRender = true) {
     this.hookId = renderHookId;
-    this.render();
+    if (shouldRender) {
+      this.render();
+    }
   }
 
   render() { }
@@ -45,32 +47,45 @@ class Component {
 }
 
 class ProductList extends Component {
-  products = [
-    new Product(
-      'A Pillow',
-      'https://cdn.shopify.com/s/files/1/0951/7126/products/classic_solid-white_pillowcase_silo_768x.progressive.jpg?v=1628533735',
-      'A soft pillow!',
-      19.99
-    ),
-    new Product(
-      'A Carpet',
-      'https://image.made-in-china.com/2f0j00sqzGDuBcJRbr/Floor-Carpet-Soft-4cm-Rugs-Velvet-Carpets-for-Living-Room.jpg',
-      'A carpet which you might like - or not.',
-      89.99
-    )
-  ];
+  products = [];
 
   constructor(renderHookId) {
     super(renderHookId);
+    this.fetchProducts();
+  }
+
+  fetchProducts() {
+    this.products = [
+      new Product(
+        'A Pillow',
+        'https://cdn.shopify.com/s/files/1/0951/7126/products/classic_solid-white_pillowcase_silo_768x.progressive.jpg?v=1628533735',
+        'A soft pillow!',
+        19.99
+      ),
+      new Product(
+        'A Carpet',
+        'https://image.made-in-china.com/2f0j00sqzGDuBcJRbr/Floor-Carpet-Soft-4cm-Rugs-Velvet-Carpets-for-Living-Room.jpg',
+        'A carpet which you might like - or not.',
+        89.99
+      )
+    ];
+    this.renderProducts();
+  }
+
+  renderProducts() {
+    this.products.forEach(product => {
+      new ProductItem(product, 'prod-list');
+    });
+
+    if (this.products && this.products.length > 0) {
+      this.renderProducts();
+    }
   }
 
   render() {
     const prodList = this.createRootElement('ul', 'product-list', [
       new ElementAttribute('id', 'prod-list')
     ]);
-    this.products.forEach(product => {
-      new ProductItem(product, 'prod-list');
-    });
     return prodList;
   }
 }
@@ -113,8 +128,9 @@ class ShoppingCart extends Component {
 
 class ProductItem extends Component {
   constructor(product, renderHookId) {
-    super(renderHookId);
+    super(renderHookId, false);
     this.product = product;
+    this.render();
   }
 
   addToCart() {
