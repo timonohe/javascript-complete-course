@@ -123,7 +123,7 @@ class ProductList extends Component {
   #products = [];
 
   constructor(renderHookId) {
-    super(renderHookId);
+    super(renderHookId, false);
     this.render();
     this.fetchProducts();
   }
