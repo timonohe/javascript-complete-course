@@ -50,3 +50,7 @@ person2.printAge();
 
 const person3 = new person.__proto__.constructor();
 console.log(person3);
+console.log(person3.toString());
+
+console.dir(Object);
+console.dir(Object.prototype);
