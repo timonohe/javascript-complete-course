@@ -12,7 +12,7 @@ class Person extends AgedPerson {
     this.age = 31;
   }
 
-  greet() {
+  greet = () => {
     console.log(`Hi, I am ${this.name} and I am ${this.age} years old.`);
   }
 }
@@ -56,4 +56,9 @@ class Person extends AgedPerson {
 // console.dir(Object.prototype);
 
 const p = new Person();
+const p2 = new Person();
 console.log(p);
+console.log(p.__proto__ === p2.__proto__);
+
+const button = document.getElementById('btn');
+button.addEventListener('click', p.greet);
