@@ -56,3 +56,22 @@ multiplier = 1.2;
 
 console.log(calculateVatAmount(100));
 console.log(calculateVatAmount(200));
+
+/*
+  Closures
+*/
+
+let userName = 'Timo';
+
+function greetUser() {
+  let name = userName;
+  // let anotherName = 'Anna';
+  console.log(`Hi ${userName}`);
+  console.log(`Hi ${name}`);
+  console.log(`Hi ${anotherName}`);
+}
+
+let anotherName = 'Maximilian';
+userName = 'Manuel';
+
+greetUser();
