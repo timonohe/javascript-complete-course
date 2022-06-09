@@ -1,3 +1,7 @@
+/*
+  Pure Functions with/without side-effects
+*/
+
 function add(num1, num2) {
   return num1 + num2;
 }
@@ -29,3 +33,21 @@ function printHobbies(h) {
 }
 
 printHobbies(hobbies);
+
+/*
+  Factory Functions - a function that produces another function
+*/
+
+function createTaxCalculator(tax) {
+  function calculateTax(amount) {
+    return amount * tax;
+  }
+
+  return calculateTax;
+}
+
+const calculateVatAmount = createTaxCalculator(0.19);
+const calculateIncomeTaxAmount = createTaxCalculator(0.25);
+
+console.log(calculateVatAmount(100));
+console.log(calculateVatAmount(200));
