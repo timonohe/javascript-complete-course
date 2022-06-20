@@ -17,4 +17,12 @@ console.log((0.2 + 0.4).toFixed(2));
 
 // want to charge 20.2 €
 console.log(20.2.toFixed(20)); // 20.19999999999999928946
-console.log(20.2 * 100);
+console.log(20.2 * 100); // work with cent instead of euro is a possible workaround
+
+// BigInt-Type (primitive value bigger than MAX_SAFE_INTEGER)
+console.log(90071992547409919n);
+console.log(900719925474099191234408n); // no supported decimal places!
+console.log(10n - 4n); // Cannot mix BigInt and other types
+console.log(parseInt(10n) - 4);
+console.log(10n - BigInt(4));
+console.log(5n/2n); // outputs 2n because BigInt cuts off all decimal places (no rounding!)
