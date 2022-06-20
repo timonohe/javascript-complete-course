@@ -36,3 +36,10 @@ console.log(Math.E);
 console.log(Math.PI);
 console.log(Math.abs(-5));
 console.log(Math.random().toFixed(2) * 100);
+
+// Demo with Math-Object
+function randomIntBetween(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+console.log(randomIntBetween(5, 10));
