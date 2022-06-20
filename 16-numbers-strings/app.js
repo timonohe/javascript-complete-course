@@ -48,3 +48,23 @@ console.log("Hello".length);
 console.log("hello".toUpperCase());
 console.log("HELLO".toLowerCase());
 console.log("hello".startsWith("he"));
+
+// Tagged Templates
+const myName = "Timo";
+console.log(`My name is ${myName}`); // nothing new!
+function productDescription(strings, productName, productPrice) {
+  console.log(strings);
+  console.log(productName);
+  console.log(productPrice);
+  let priceCategory = 'pretty cheap regarding its price';
+  if (productPrice > 20) {
+    priceCategory = 'fairly priced';
+  }
+
+  // return `${strings[0]}${productName}${strings[1]}${priceCategory}${strings[2]}`;
+  return {name: productName, price: productPrice};
+}
+const prodName = 'JavaScript Course';
+const prodPrice = 29.99;
+const productOutput = productDescription`This product (${prodName}) is ${prodPrice}.`;
+console.log(productOutput);
