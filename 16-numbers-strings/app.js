@@ -41,5 +41,10 @@ console.log(Math.random().toFixed(2) * 100);
 function randomIntBetween(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
-
 console.log(randomIntBetween(5, 10));
+
+// Exploring String-Methods
+console.log("Hello".length);
+console.log("hello".toUpperCase());
+console.log("HELLO".toLowerCase());
+console.log("hello".startsWith("he"));
