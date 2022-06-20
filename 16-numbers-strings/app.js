@@ -68,3 +68,12 @@ const prodName = 'JavaScript Course';
 const prodPrice = 29.99;
 const productOutput = productDescription`This product (${prodName}) is ${prodPrice}.`;
 console.log(productOutput);
+
+// Regular Expressions
+const userInput = 'testtest.com';
+console.log(userInput.includes('@')); // false
+console.log(userInput.includes('.')); // true but whould allow 'tes.t@test' as an correct e-mail
+// const regex = new RegExp('some-regex');
+const regex = /^\S+@\S+\.\S+$/;
+console.log(regex.test(userInput));
+console.log(regex.test('test@test.com'));
