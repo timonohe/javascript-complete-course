@@ -26,3 +26,13 @@ console.log(10n - 4n); // Cannot mix BigInt and other types
 console.log(parseInt(10n) - 4);
 console.log(10n - BigInt(4));
 console.log(5n/2n); // outputs 2n because BigInt cuts off all decimal places (no rounding!)
+
+// Global Number- and Math-Object
+console.log(Number.POSITIVE_INFINITY);
+console.log(Number.NEGATIVE_INFINITY);
+console.log(Number.isFinite(10));
+console.log(Number.isFinite(1/0));
+console.log(Math.E);
+console.log(Math.PI);
+console.log(Math.abs(-5));
+console.log(Math.random().toFixed(2) * 100);
