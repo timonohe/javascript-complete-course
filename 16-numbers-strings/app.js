@@ -74,6 +74,26 @@ const userInput = 'testtest.com';
 console.log(userInput.includes('@')); // false
 console.log(userInput.includes('.')); // true but whould allow 'tes.t@test' as an correct e-mail
 // const regex = new RegExp('some-regex');
-const regex = /^\S+@\S+\.\S+$/;
+let regex = /^\S+@\S+\.\S+$/;
 console.log(regex.test(userInput));
 console.log(regex.test('test@test.com'));
+
+regex = /hello/;
+console.log(regex.test('hello'));
+console.log(regex.test('hi there, hello'));
+console.log(regex.test('hi there, hello...'));
+console.log(regex.test('Hello')); // false because regex-tests are case-sensitive
+regex = /(h|H)ello/;
+console.log(regex.test('hello'));
+console.log(regex.test('hi - hello'));
+console.log(regex.test('hi - hello ...'));
+console.log(regex.test('hi - Hello ...'));
+console.log(regex.test('hi - ello'));
+regex = /.ello/; // . is a wildcard
+console.log(regex.test('hello'));
+console.log(regex.test('ello'));
+console.log(regex.test('Jello'));
+console.log(regex.test('        Jello'));
+console.log(regex.exec('jello'));
+console.log(regex.exec('Hi! jello'));
+console.log('hi jello'.match(regex));
