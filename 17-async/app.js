@@ -10,13 +10,25 @@ const setTimer = duration => {
   return promise;
 };
 
+const getPosition = (opts) => {
+  const promise = new Promise((resolve, reject) => {
+    navigator.geolocation.getCurrentPosition(
+      success => resolve(success),
+      error => console.error(error),
+      opts
+    );
+  })
+  return promise;
+}
+
 function trackUserHandler() {
-  navigator.geolocation.getCurrentPosition(
-    posData => {
-      setTimer(2000).then(data => console.log(data, posData));
-    },
-    error => console.error(error)
-  );
+  let positionData;
+  getPosition()
+    .then(posData => {
+      positionData = posData;
+      return setTimer(2000);
+    })
+    .then(data => console.log(data, positionData));
   setTimer(1000).then(() => console.log('Timer done!'));
   console.log('Getting position...');
 }
