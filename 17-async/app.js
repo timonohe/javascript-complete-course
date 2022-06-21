@@ -14,7 +14,7 @@ const getPosition = (opts) => {
   const promise = new Promise((resolve, reject) => {
     navigator.geolocation.getCurrentPosition(
       success => resolve(success),
-      error => console.error(error),
+      error => reject(error),
       opts
     );
   })
@@ -24,10 +24,12 @@ const getPosition = (opts) => {
 function trackUserHandler() {
   let positionData;
   getPosition()
-    .then(posData => {
-      positionData = posData;
-      return setTimer(2000);
-    })
+    .then(
+      posData => {
+        positionData = posData;
+        return setTimer(2000);
+      })
+    .catch(error => console.log(error))
     .then(data => console.log(data, positionData));
   setTimer(1000).then(() => console.log('Timer done!'));
   console.log('Getting position...');
