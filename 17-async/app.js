@@ -55,3 +55,18 @@ button.addEventListener('click', trackUserHandler);
 //   result += i;
 // }
 // console.log(result);
+
+// Promise.race executes all asyncronous Code in the Array but evaluate the result of the fastest method (other results will be ignored)
+Promise.race([ getPosition(), setTimer(1000) ]).then(data => {
+  console.log(data);
+});
+
+// Promise.all executes all asyncronous Code at the same time, wait until every Code was executed and then returns all data
+Promise.all([ getPosition(), setTimer(1000) ]).then(promiseData => {
+  console.log(promiseData);
+});
+
+// Promise.allSettled executes all asynchronous Code even if one Code fails
+Promise.allSettled([ getPosition(), setTimer(1000) ]).then( promiseData => {
+  console.log(promiseData);
+});
