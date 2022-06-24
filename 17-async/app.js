@@ -33,18 +33,19 @@ async function trackUserHandler() {
   }
   
   console.log(timerData, posData);
-    // .then(
-    //   posData => {
-    //     positionData = posData;
-    //     return setTimer(2000);
-    //   })
-    // .catch(error => {
-    //   console.log(error);
-    //   console.log('on we go...');
-    // })
-    // .then(data => console.log(data, positionData));
-  // setTimer(1000).then(() => console.log('Timer done!'));
-  // console.log('Getting position...');
+  // getPosition()
+  //   .then(
+  //     posData => {
+  //       positionData = posData;
+  //       return setTimer(2000);
+  //     })
+  //   .catch(error => {
+  //     console.log(error);
+  //     console.log('on we go...');
+  //   })
+  //   .then(data => console.log(data, positionData));
+  setTimer(1000).then(() => console.log('Timer done!'));
+  console.log('Getting position...');
 }
 
 button.addEventListener('click', trackUserHandler);
