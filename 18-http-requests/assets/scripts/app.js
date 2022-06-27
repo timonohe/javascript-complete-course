@@ -34,8 +34,20 @@ function sendHttpRequest(method, url, data) {
     headers: {
       'Content-Type': 'application/json'
     }
-  }).then(response => {
-    return response.json();
+  })
+  .then(response => {
+    if (response.status >= 200 && response.status < 300) {
+      return response.json();
+    } else {
+      return response.json().then(errData => {
+        console.log(errData);
+        throw new Error('Something went wrong - server-side!');
+      });
+    }
+  })
+  .catch(error => {
+    console.log(error);
+    throw new Error('Something went wrong!');
   });
 }
 
@@ -49,10 +61,10 @@ async function fetchPosts() {
     
     // this line is not necessary if responseType is 'json'
     // const listOfPosts = JSON.parse(xhr.response);
-  
+
     const listOfPosts = responseData;
     // console.log(listOfPosts);
-  
+
     for (const post of listOfPosts) {
       const postEl = document.importNode(postTemplate.content, true);
       postEl.querySelector('h2').textContent = post.title.toUpperCase();
