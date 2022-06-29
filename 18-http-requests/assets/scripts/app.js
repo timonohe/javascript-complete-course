@@ -54,7 +54,7 @@ function sendHttpRequest(method, url, data) {
 
 async function fetchPosts() {
   try {
-    const responseData = await sendHttpRequest('GET', 'https://jsonplaceholder.typicode.com/posts');
+    const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
 
     // const listOfPosts = xhr.response;
     // xhr.response returns a JSON-Object not a native array --> whould throws an error
@@ -63,7 +63,7 @@ async function fetchPosts() {
     // this line is not necessary if responseType is 'json'
     // const listOfPosts = JSON.parse(xhr.response);
 
-    const listOfPosts = responseData;
+    const listOfPosts = response.data;
     // console.log(listOfPosts);
 
     for (const post of listOfPosts) {
@@ -91,7 +91,8 @@ async function createPost(title, content) {
   // fd.append('body', content);
   fd.append('userId', userId);
 
-  sendHttpRequest('POST', 'https://jsonplaceholder.typicode.com/posts', fd);
+  const response = await axios.post('https://jsonplaceholder.typicode.com/posts', post);
+  console.log(response);
 }
 
 fetchButton.addEventListener('click', fetchPosts);
@@ -105,6 +106,6 @@ form.addEventListener('submit', event => {
 postList.addEventListener('click', event => {
   if (event.target.tagName === 'BUTTON') {
     const postId = event.target.closest('li').id;
-    sendHttpRequest('DELETE', `https://jsonplaceholder.typicode.com/posts/${postId}`);
+    axios.delete(`https://jsonplaceholder.typicode.com/posts/${postId}`);
   }
 });
