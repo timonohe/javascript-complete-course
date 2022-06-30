@@ -1,5 +1,8 @@
 import { ProjectItem } from "./ProjectItem.js";
-import { DOMHelper } from "../Utility/DOMHelper.js";
+// import {ProjectItem as PrjItem } from './ProjectItem.js';
+import { moveElement } from "../Utility/DOMHelper.js";
+// import { moveElement, DOMHelper, clearEventListeners } from '../Utility/DOMHelper.js'
+// import * as DOMHelp from '../Utility/DOMHelper.js'
 
 export class ProjectList {
   projects = [];
@@ -58,7 +61,8 @@ export class ProjectList {
 
   addProject(project) {
     this.projects.push(project);
-    DOMHelper.moveElement(project.id, `#${this.type}-projects ul`);
+    // DOMHelp.moveElement(project.id, `#${this.type}-projects ul`);
+    moveElement(project.id, `#${this.type}-projects ul`);
     project.update(this.switchProject.bind(this), this.type);
   }
 
