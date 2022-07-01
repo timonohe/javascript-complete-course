@@ -1,6 +1,6 @@
-import { ProjectItem } from "./ProjectItem.js";
+import { ProjectItem } from './ProjectItem.js';
 // import {ProjectItem as PrjItem } from './ProjectItem.js';
-import { moveElement } from "../Utility/DOMHelper.js";
+import { moveElement } from '../Utility/DOMHelper.js';
 // import { moveElement, DOMHelper, clearEventListeners } from '../Utility/DOMHelper.js'
 // import * as DOMHelp from '../Utility/DOMHelper.js'
 
@@ -22,7 +22,9 @@ export class ProjectList {
   }
 
   connectDroppable() {
+    // eslint-disable-next-line no-undef
     console.log(globalThis);
+    // eslint-disable-next-line no-undef
     console.log(globalThis.DEFAULT_VALUE);
     const list = document.querySelector(`#${this.type}-projects ul`);
 
