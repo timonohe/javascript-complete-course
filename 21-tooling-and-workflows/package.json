@@ -6,14 +6,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/timonohe/javascript-complete-course.git"
-  },
   "author": "Timo Nohe",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/timonohe/javascript-complete-course/issues"
-  },
-  "homepage": "https://github.com/timonohe/javascript-complete-course#readme"
+  "license": "ISC"
 }
