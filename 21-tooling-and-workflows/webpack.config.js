@@ -8,7 +8,12 @@ module.exports = {
     path: path.resolve(__dirname, 'assets', 'scripts'),
     publicPath: 'assets/scripts/'
   },
-  // devServer: {
-  //   contentBase: './index.html'
-  // }
+  devtool: 'eval-cheap-module-source-map',
+  devServer: {
+    static: {
+      directory: path.join(__dirname)
+    },
+    compress: true,
+    port: 9000
+  }
 };

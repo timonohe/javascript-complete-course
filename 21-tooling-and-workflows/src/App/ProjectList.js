@@ -1,12 +1,12 @@
-import { ProjectItem } from './ProjectItem';
-// import {ProjectItem as PrjItem } from './ProjectItem.js';
-import { moveElement } from '../Utility/DOMHelper';
-// import { moveElement, DOMHelper, clearEventListeners } from '../Utility/DOMHelper.js'
-// import * as DOMHelp from '../Utility/DOMHelper.js'
+import { ProjectItem as PrjItem } from './ProjectItem';
+import * as DOMH from '../Utility/DOMHelper';
+
+// const ProjectItem = 'abc';
 
 // console.log(DEFAULT_VALUE);
 
 export class ProjectList {
+  // projects = [];
 
   constructor(type) {
     this.type = type;
@@ -14,7 +14,7 @@ export class ProjectList {
     const prjItems = document.querySelectorAll(`#${type}-projects li`);
     for (const prjItem of prjItems) {
       this.projects.push(
-        new ProjectItem(prjItem.id, this.switchProject.bind(this), this.type)
+        new PrjItem(prjItem.id, this.switchProject.bind(this), this.type)
       );
     }
     console.log(this.projects);
@@ -22,10 +22,7 @@ export class ProjectList {
   }
 
   connectDroppable() {
-    // eslint-disable-next-line no-undef
-    console.log(globalThis);
-    // eslint-disable-next-line no-undef
-    console.log(globalThis.DEFAULT_VALUE);
+    // console.log(globalThis);
     const list = document.querySelector(`#${this.type}-projects ul`);
 
     list.addEventListener('dragenter', event => {
@@ -67,8 +64,7 @@ export class ProjectList {
 
   addProject(project) {
     this.projects.push(project);
-    // DOMHelp.moveElement(project.id, `#${this.type}-projects ul`);
-    moveElement(project.id, `#${this.type}-projects ul`);
+    DOMH.moveElement(project.id, `#${this.type}-projects ul`);
     project.update(this.switchProject.bind(this), this.type);
   }
 

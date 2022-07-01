@@ -1,7 +1,10 @@
 import { DOMHelper } from '../Utility/DOMHelper';
 // import { Tooltip } from './Tooltip.js';
 
+console.log('Project Item created!');
+
 export class ProjectItem {
+  // hasActiveTooltip = false;
 
   constructor(id, updateProjectListsFunction, type) {
     this.id = id;
@@ -29,6 +32,7 @@ export class ProjectItem {
       tooltip.attach();
       this.hasActiveTooltip = true;
     });
+   
   }
 
   connectDrag() {
