@@ -1,4 +1,5 @@
 const path = require('path');
+const CleanPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -15,5 +16,8 @@ module.exports = {
     },
     compress: true,
     port: 9000
-  }
+  },
+  plugins: [
+    new CleanPlugin.CleanWebpackPlugin()
+  ]
 };
