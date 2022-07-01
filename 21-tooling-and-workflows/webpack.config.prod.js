@@ -10,6 +10,9 @@ module.exports = {
     publicPath: 'assets/scripts/'
   },
   devtool: 'cheap-source-map',
+  // devServer: {
+  //   contentBase: './'
+  // }
   plugins: [
     new CleanPlugin.CleanWebpackPlugin()
   ]
