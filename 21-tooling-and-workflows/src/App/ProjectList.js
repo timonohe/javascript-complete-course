@@ -1,16 +1,16 @@
-import { ProjectItem } from './ProjectItem.js';
+import { ProjectItem } from './ProjectItem';
 // import {ProjectItem as PrjItem } from './ProjectItem.js';
-import { moveElement } from '../Utility/DOMHelper.js';
+import { moveElement } from '../Utility/DOMHelper';
 // import { moveElement, DOMHelper, clearEventListeners } from '../Utility/DOMHelper.js'
 // import * as DOMHelp from '../Utility/DOMHelper.js'
 
 // console.log(DEFAULT_VALUE);
 
 export class ProjectList {
-  projects = [];
 
   constructor(type) {
     this.type = type;
+    this.projects = [];
     const prjItems = document.querySelectorAll(`#${type}-projects li`);
     for (const prjItem of prjItems) {
       this.projects.push(

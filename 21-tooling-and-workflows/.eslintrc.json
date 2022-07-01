@@ -9,11 +9,12 @@
       "SharedArrayBuffer": "readonly"
     },
     "parserOptions": {
-      "ecmaVersion": "latest",
+      "ecmaVersion": 2018,
       "sourceType": "module"
     },
     "rules": {
       "quotes": ["error", "single"],
-      "semi": "error"
+      "semi": "error",
+      "no-undef": "off"
     }
   }
