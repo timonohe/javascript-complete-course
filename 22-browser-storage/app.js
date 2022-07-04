@@ -1,22 +1,31 @@
-const storeCookieBtn = document.getElementById('store-btn');
-const retrCookieBtn = document.getElementById('retrieve-btn');
+const storeIndexedDBBtn = document.getElementById('store-btn');
+const retrIndexedDBBtn = document.getElementById('retrieve-btn');
 
-storeCookieBtn.addEventListener('click', () => {
-  const userId = 'u123';
-  const user = {
-    name: 'Timo',
-    age: 31
+const dbRequest = indexedDB.open('StorageDummy', 1);
+
+dbRequest.onupgradeneeded = function(event) {
+  const db = event.target.result;
+  const objStore = db.createObjectStore('products', {keyPath: 'id'});
+
+  objStore.transaction.oncomplete = function(event) {
+    const productsStore = db.transaction('products', 'readwrite').objectStore('products');
+    productsStore.add({
+      id: 'p1', 
+      title: 'A First Product', 
+      price: 12.99, 
+      tags: ['Expensive', 'Luxury']}
+    );
   };
-  document.cookie = `uid=${userId}; max-age=360`;
-  document.cookie = `user=${JSON.stringify(user)}`;
+};
+
+dbRequest.onerror = function(event) {
+  console.log('ERROR!');
+};
+
+storeIndexedDBBtn.addEventListener('click', () => {
+
 });
 
-retrCookieBtn.addEventListener('click', () => {
-  console.log(document.cookie);
-  const cookieData = document.cookie.split(';');
-  const data = cookieData.map(i => {
-    return i.trim();
-  });
-  console.log(data);
-  console.log(data[1].split('=')[1]);
+retrIndexedDBBtn.addEventListener('click', () => {
+
 });
