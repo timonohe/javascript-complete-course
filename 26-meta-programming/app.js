@@ -70,7 +70,6 @@ const persons = ['Max', 'Manu'];
 console.log(persons);
 
 // Reflect-API
-
 const course = {
   title: 'JavaScript - The Complete Guide'
 };
@@ -80,5 +79,18 @@ Reflect.setPrototypeOf(course, {
   }
 });
 console.log(course.toString());
-Reflect.deleteProperty(course, 'title');
-console.log(course);
+// Reflect.deleteProperty(course, 'title');
+// console.log(course);
+
+// Proxy-API
+const courseHandler = {
+  get(obj, propertyName) {
+    console.log(propertyName);
+    if(propertyName === 'length') {
+      return 0;
+    }
+    return obj[propertyName] ||'NOT FOUND';
+  }
+};
+const pCourse = new Proxy(course, courseHandler);
+console.log(pCourse.title, pCourse.length, pCourse.rating);
