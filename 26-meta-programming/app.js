@@ -65,3 +65,6 @@ console.log([...company]);
 // console.log(it.next());
 // console.log(it.next());
 // console.log(it.next());
+
+const persons = ['Max', 'Manu'];
+console.log(persons);
