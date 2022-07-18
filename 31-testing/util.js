@@ -29,9 +29,8 @@ exports.checkAndGenerate = (name, age) => {
   if (!validateInput(name, true, false) || !validateInput(age, false, true)) {
     return false;
   }
-
   return generateText(name, age);
-}
+};
 
 exports.generateText = generateText;
 exports.validateInput = validateInput;

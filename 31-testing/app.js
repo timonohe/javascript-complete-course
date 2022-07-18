@@ -22,6 +22,7 @@ const addUser = () => {
   }
 
   const userList = document.querySelector('.user-list');
+
   const element = createElement('li', outputText, 'user-item');
   userList.appendChild(element);
 };
