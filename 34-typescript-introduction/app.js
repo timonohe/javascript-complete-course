@@ -4,12 +4,20 @@ var buttonElement = document.querySelector('button');
 function add(a, b) {
     return a + b;
 }
-function printResult(result) {
-    console.log(result);
+var OutputMode;
+(function (OutputMode) {
+    OutputMode[OutputMode["CONSOLE"] = 0] = "CONSOLE";
+    OutputMode[OutputMode["ALERT"] = 1] = "ALERT";
+})(OutputMode || (OutputMode = {}));
+;
+function printResult(result, printMode) {
+    if (printMode === OutputMode.CONSOLE) {
+        console.log(result);
+    }
+    else if (printMode === OutputMode.ALERT) {
+        alert(result);
+    }
 }
-// const result = add(5, 3);
-// let isDone = false;
-// printResult(result);
 var results = [];
 var names = ['Timo'];
 buttonElement.addEventListener('click', function () {
@@ -23,5 +31,7 @@ buttonElement.addEventListener('click', function () {
         }
     };
     results.push(resultContainer);
-    results[0].print();
+    // results[0].print();
+    printResult(result, OutputMode.CONSOLE);
+    printResult(result, OutputMode.ALERT);
 });

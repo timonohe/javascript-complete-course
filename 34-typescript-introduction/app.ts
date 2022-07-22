@@ -6,8 +6,15 @@ function add(a: number, b: number) {
   return a + b;
 }
 
-function printResult(result): void {
-  console.log(result);
+type PrintMode = 'console' | 'alert';
+enum OutputMode { CONSOLE, ALERT };
+
+function printResult(result: string | number, printMode: OutputMode): void {
+  if (printMode === OutputMode.CONSOLE) {
+    console.log(result);
+  } else if (printMode === OutputMode.ALERT) {
+    alert(result);
+  }
 }
 
 // const result = add(5, 3);
@@ -15,7 +22,9 @@ function printResult(result): void {
 
 // printResult(result);
 
-const results: { res: number, print: () => void }[] = [];
+type CalculationResults = { res: number, print: () => void }[];
+
+const results: CalculationResults = [];
 const names = ['Timo'];
 
 buttonElement.addEventListener('click', () => {
@@ -29,5 +38,7 @@ buttonElement.addEventListener('click', () => {
     }
   };
   results.push(resultContainer);
-  results[0].print();
+  // results[0].print();
+  printResult(result, OutputMode.CONSOLE);
+  printResult(result, OutputMode.ALERT);
 });
