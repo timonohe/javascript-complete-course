@@ -14,6 +14,7 @@
 </head>
 <body>
   <template id="tooltip-template">
+    <slot>Some default</slot>
     <span> (?)</span>
   </template>
   <p>
@@ -21,6 +22,6 @@
       Web Components
     </uc-jsc-tooltip> are awesome!
   </p>
-  <uc-jsc-tooltip>Here we go!</uc-jsc-tooltip>
+  <uc-jsc-tooltip></uc-jsc-tooltip>
 </body>
 </html>
