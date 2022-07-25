@@ -13,8 +13,13 @@
   <script src="tooltip.js"></script>
 </head>
 <body>
+  <template id="tooltip-template">
+    <span> (?)</span>
+  </template>
   <p>
-    <uc-jsc-tooltip text="Web Components is a set of standards.">Web Components</uc-jsc-tooltip> are awesome!
+    <uc-jsc-tooltip text="Web Components is a set of standards.">
+      Web Components
+    </uc-jsc-tooltip> are awesome!
   </p>
   <uc-jsc-tooltip>Here we go!</uc-jsc-tooltip>
 </body>
