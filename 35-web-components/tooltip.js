@@ -6,14 +6,15 @@ class Tooltip extends HTMLElement {
     this.attachShadow({mode: 'open'});
     this.shadowRoot.innerHTML = `
       <style>
-        :host {
-          background: #ccc;          
-        }
         div {
           background-color: black;
           color: white;
           position: absolute;
           z-index: 10;
+        }
+
+        :host(.important) {
+          background: #ccc;
         }
 
         .highlight {
