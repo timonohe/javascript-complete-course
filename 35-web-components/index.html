@@ -40,6 +40,15 @@
   <script>
     const confirmButton = document.getElementById('show-modal-button');
     const modal = document.querySelector('uc-jsc-modal');
+
+    modal.addEventListener('confirm', () => {
+      console.log('Confirmed...');
+    });
+
+    modal.addEventListener('cancel', () => {
+      console.log('Cancelled...');
+    });
+
     confirmButton.addEventListener('click', () => {
       if (!modal.isOpen) {
         modal.open();
