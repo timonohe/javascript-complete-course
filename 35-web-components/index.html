@@ -32,5 +32,16 @@
   <uc-jsc-modal>
     <p>With your confirmation you agree to pay the full amount!</p>
   </uc-jsc-modal>
+
+  <p>Please confirm your choice.</p>
+  <button id="show-modal-button">Show Details & Confirm</button>
+
+  <script>
+    const confirmButton = document.getElementById('show-modal-button');
+    const modal = document.querySelector('uc-jsc-modal');
+    confirmButton.addEventListener('click', () => {
+      modal.setAttribute('opened', '');
+    });
+  </script>
 </body>
 </html>
