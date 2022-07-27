@@ -1,6 +1,7 @@
 class Modal extends HTMLElement {
   constructor() {
     super();
+    this.isOpen = false;
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.innerHTML = `
       <style>
@@ -75,6 +76,19 @@ class Modal extends HTMLElement {
         </section>
       </div>
     `;
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (this.hasAttribute('opened')) {
+      this.isOpen = true;
+    } else {
+      this.isOpen = false;
+    }
+  }
+
+  open() {
+    this.setAttribute('opened', '');
+    this.isOpen = true;
   }
 }
 

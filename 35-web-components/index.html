@@ -40,7 +40,10 @@
     const confirmButton = document.getElementById('show-modal-button');
     const modal = document.querySelector('uc-jsc-modal');
     confirmButton.addEventListener('click', () => {
-      modal.setAttribute('opened', '');
+      if (!modal.isOpen) {
+        modal.open();
+        console.log('Opening...');
+      }
     });
   </script>
 </body>
